@@ -5,7 +5,7 @@ set -eox pipefail
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 cd "$SCRIPT_DIR" || exit
 
-VERSION=$(yq -oy '.package.version' Cargo.toml)
+VERSION=$(tomlq -r '.package.version' Cargo.toml)
 export VERSION=$VERSION
 
 bash do_release.sh

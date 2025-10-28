@@ -16,7 +16,7 @@ cd $SCRIPT_DIR/../../cli/py
 bash build.sh
 
 pip uninstall -y trustspeccli
-pip install dist/trustspeccli-*-py3-none-any.whl
+pip install dist/trustspeccli-*-py2.py3-none-any.whl
 
 cd $SCRIPT_DIR
 trust -V

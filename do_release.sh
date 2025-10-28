@@ -20,4 +20,5 @@ bash build.sh
 maturin upload target/wheels/*
 
 cd $SCRIPT_DIR/cli/py
+bash build.sh
 twine upload dist/*

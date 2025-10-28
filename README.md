@@ -65,7 +65,7 @@ Options:
   - Use Trust spec as an intermediate format with the `to-open-api` command.
 
 ## Requirements
-- Python 3.10 - currently the only supported version
+- Python 3.14 - currently the only supported version
 
 ## Specification
 Trust specification enhances current integration standards like [OpenAPI](https://github.com/OAI/OpenAPI-Specification). Key benefits include:
