@@ -367,7 +367,7 @@ impl Gen for GenPythonHttpServer {
             let router = handlebars
                 .render_template(
                     router_template.as_str(),
-                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "useNamespace": &pkg.use_namespace}),
+                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "useNamespace": &pkg.use_namespace, "async": self.lang.gen_cfg.r#async}),
                 )
                 .unwrap();
             (
@@ -430,7 +430,7 @@ impl Gen for GenPythonHttpServer {
             let service = handlebars
                 .render_template(
                     service_template.as_str(),
-                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "autoImpl": self.lang.gen_cfg.auto_implement}),
+                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "async": self.lang.gen_cfg.r#async, "autoImpl": self.lang.gen_cfg.auto_implement}),
                 )
                 .unwrap();
             (
