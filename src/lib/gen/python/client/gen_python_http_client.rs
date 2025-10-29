@@ -231,10 +231,16 @@ impl Gen for GenPythonHttpClient {
         dtos.insert((out_dir.clone() + "/__init__.py").into(), "".into());
 
         let trust_mod_template = templates.get("trustMod").unwrap();
+        let trust_mod = handlebars
+            .render_template(
+                trust_mod_template.as_str(),
+                &json!({ "async": self.lang.gen_cfg.r#async }),
+            )
+            .unwrap();
         let trust_mod_path = self.lang.clone().gen_cfg.module.unwrap_or("trust".into());
         dtos.insert(
             (trust_mod_path.to_string_lossy().to_string() + "/__init__.py").into(),
-            trust_mod_template.clone(),
+            trust_mod.clone(),
         );
 
         dtos.insert(
@@ -412,7 +418,7 @@ impl Gen for GenPythonHttpClient {
             let service = handlebars
                 .render_template(
                     service_template.as_str(),
-                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "useNamespace": &pkg.use_namespace, "mod": &self.lang().module()}),
+                    &json!({"feature": self.lang.feature.clone(), "ops": &pkg.ops, "useNamespace": &pkg.use_namespace, "async": self.lang.gen_cfg.r#async, "mod": &self.lang().module()}),
                 )
                 .unwrap();
             (

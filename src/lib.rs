@@ -163,6 +163,8 @@ pub struct GenCfg {
     module: Option<PathBuf>,
     dto_name: Option<String>,
     #[serde(default)]
+    r#async: bool,
+    #[serde(default)]
     auto_implement: bool,
 }
 

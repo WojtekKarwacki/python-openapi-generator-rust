@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 from typing import Any, TypeVar, Generic
 
-client = httpx.Client(base_url = os.environ["SERVER_BASE_URL"])
+client = httpx.{{#if async}}Async{{/if}}Client(base_url = os.environ["SERVER_BASE_URL"])
 
 class Dto(BaseModel):
     model_config = ConfigDict(
