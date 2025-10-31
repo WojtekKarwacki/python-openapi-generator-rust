@@ -35,5 +35,5 @@ trustspecpy = "{VERSION}"
 trust = "trustspeccli.main:run"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core", "twine"]
 build-backend = "poetry.core.masonry.api"
